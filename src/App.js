@@ -1,25 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
-
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Beranda from "./components/Beranda";
+import DataTable from "./components/DataTable";
+import ManajemenBook from "./components/ManajemenBook";
+import Navbar from "./components/Navbar";
+import React, { useState } from "react";
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+  
+    return (
+        <div>
+            <BrowserRouter>
+                <Navbar />
+
+                <Routes>
+                    <Route path="/" exact element={<Beranda />} />
+                    <Route
+                        path="/manajemen-buku"
+                        exact
+                        element={<ManajemenBook />}
+                    />
+                </Routes>
+            </BrowserRouter>
+        </div>
+    );
 }
 
 export default App;
